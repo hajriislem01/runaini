@@ -1,9 +1,0 @@
-# Dockerfile.frontend
-FROM node:18
-
-WORKDIR /app
-COPY frontend/ /app/
-RUN npm install
-RUN npm run build
-
-# Le build est maintenant dans /app/build
