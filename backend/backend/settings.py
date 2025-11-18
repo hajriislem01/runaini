@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'rest_framework',
     'rest_framework.authtoken' ,
-    'backend.accounts',
+    'accounts',
     'django.contrib.staticfiles',  
     'corsheaders', 
     
@@ -72,7 +72,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:80"
 ]
 
-ROOT_URLCONF = 'backend.backend.urls'
+ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
     {
