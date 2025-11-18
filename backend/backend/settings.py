@@ -72,7 +72,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:80"
 ]
 
-ROOT_URLCONF = 'backend.urls'
+ROOT_URLCONF = 'backend.backend.urls'
 
 TEMPLATES = [
     {
