@@ -70,7 +70,8 @@ MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 CORS_ALLOWED_ORIGINS = [
     "http://localhost",
     "http://localhost:3000",
-    "http://localhost:80"
+    "http://localhost:80" ,
+    "https://runaini-6vkl-icl59ljcq-hajriislem01s-projects.vercel.app",
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -161,3 +162,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+CORS_ALLOW_CREDENTIALS = True
