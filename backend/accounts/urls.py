@@ -3,10 +3,12 @@ from .views import AdminSignupView , LoginView , CoachSignupView , PlayerSignupV
 
 
 urlpatterns = [
+    path('', include('accounts.api_urls')), 
     path('signup/', AdminSignupView.as_view(), name='admin-signup'),
-    path('login/', LoginView.as_view(), name='login'),
+    
     path('signup/coach/', CoachSignupView.as_view(), name='coach_signup'),
     
     path('players/signup/', PlayerSignupView.as_view(), name='player-signup'),
-    path('', include('accounts.api_urls')), 
+    path('login/', LoginView.as_view(), name='login'),
+    
 ]
