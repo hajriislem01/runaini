@@ -71,7 +71,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost",
     "http://localhost:3000",
     "http://localhost:80" ,
-    "https://runaini-6vkl-icl59ljcq-hajriislem01s-projects.vercel.app",
+    "https://runaini-o2dnn0wv9-hajriislem01s-projects.vercel.app",
     "https://runaini.onrender.com",
 ]
 
