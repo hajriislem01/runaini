@@ -474,7 +474,7 @@ const Profile = () => {
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
             <div className="relative">
               <div className="w-40 h-40 rounded-2xl overflow-hidden border-4 border-white shadow-lg bg-white">
-                {academyInfo.logo ? (
+                {/* {academyInfo.logo ? (
                   <img
                     src={academyInfo.logo}
                     alt={academyInfo.name}
@@ -484,7 +484,7 @@ const Profile = () => {
                   <div className="w-full h-full flex items-center justify-center bg-gray-100">
                     <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
                   </div>
-                )}
+                )} */}
               </div>
             </div>
 
