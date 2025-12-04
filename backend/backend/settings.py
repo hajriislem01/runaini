@@ -88,8 +88,8 @@ MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 CORS_ALLOWED_ORIGINS = [
     "http://localhost",
     "http://localhost:3000",
-    "http://localhost:80" ,
-    "https://runaini-o2dnn0wv9-hajriislem01s-projects.vercel.app",
+    "http://localhost:80",
+    "https://runaini-5f59w7c1z-hajriislem01s-projects.vercel.app",  
     "https://runaini.onrender.com",
 ]
 
