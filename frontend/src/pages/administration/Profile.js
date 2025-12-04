@@ -473,19 +473,14 @@ const Profile = () => {
 
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
             <div className="relative">
-              <div className="w-40 h-40 rounded-2xl overflow-hidden border-4 border-white shadow-lg bg-white">
-                {/* {academyInfo.logo ? (
-                  <img
-                    src={academyInfo.logo}
-                    alt={academyInfo.name}
-                    className="w-full h-full object-contain p-2"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                    <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
-                  </div>
-                )} */}
+            <div className="w-40 h-40 rounded-2xl overflow-hidden border-4 border-white shadow-lg bg-white">
+              <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                <div className="text-center font-semibold text-gray-700 px-2">
+                  {academyInfo?.name || "Academy"}
+                </div>
               </div>
+            </div>
+
             </div>
 
             <div className="flex-1 text-center md:text-left">
