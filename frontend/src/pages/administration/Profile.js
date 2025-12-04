@@ -36,7 +36,8 @@ const Profile = () => {
     );
   }
 
-  const { personalInfo, location, academyInfo } = profileData;
+  const { personalInfo = {}, location = {}, academyInfo = {} } = profileData || {};
+
 
   const getCountryName = (code) => {
     return code || 'Not specified';
