@@ -34,14 +34,14 @@ const LoginForm = () => {
         setIsLoading(true);
 
         try {
-            // const response = await axios.post('http://localhost:8000/api/login/', {
-            //     email,
-            //     password
-            // });
-            const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/login/`,
-        { email, password }
-    );
+            const response = await axios.post('http://localhost:8000/api/login/', {
+                 email,
+                 password
+             });
+    //         const response = await axios.post(
+    //     `${process.env.REACT_APP_API_URL}/login/`,
+    //     { email, password }
+    // );
 
 
             const { token, user: userData } = response.data; // Destructure with alias
@@ -58,7 +58,7 @@ const LoginForm = () => {
                 // Redirect based on role
                 setTimeout(() => {
                     if (userData.role === 'admin') {
-                        navigate('/administration/dashboard');
+                        navigate('/administration/Profile');
                     } else if (userData.role === 'coach') {
                         navigate('/coach/profile');
                     } else {

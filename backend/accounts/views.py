@@ -44,7 +44,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
-from accounts.models import CustomUser  # adapte selon ton app
+from accounts.models import CustomUser  
 
 class LoginView(APIView):
     def post(self, request):
@@ -119,12 +119,17 @@ from .serializers import CoachSerializer , PlayerProfileSerializer
 from django.db import IntegrityError
 
 class CoachViewSet(viewsets.ModelViewSet):
-    queryset = CoachProfile.objects.all()
+    queryset = CustomUser.objects.filter(role="coach")
     serializer_class = CoachSerializer
     permission_classes = [permissions.IsAuthenticated]
-    
+
+from rest_framework.permissions import BasePermission
+
+class IsAdmin(BasePermission):
+    def has_permission(self, request, view):
+        return request.user.is_authenticated and request.user.role == "admin"   
 class PlayerSignupView(APIView):
-    permission_classes = [IsAuthenticated] # Permet l'accès sans authentification
+    permission_classes = [IsAuthenticated , IsAdmin] # Permet l'accès sans authentification
 
     def post(self, request):
         data = request.data
@@ -188,10 +193,9 @@ class PlayerViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        
-        # Filtrage par groupe si paramètre fourni
-        group = self.request.query_params.get('group', None)
+
+        group = self.request.query_params.get('group')
         if group:
             queryset = queryset.filter(group=group)
-            
+
         return queryset

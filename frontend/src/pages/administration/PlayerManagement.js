@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FiSearch, FiPlus, FiEye, FiEyeOff, FiX, FiEdit, FiTrash2, FiUser, FiCheck, FiUsers, FiChevronRight, FiUserPlus, FiMail, FiPhone, FiMapPin, FiCalendar, FiXCircle } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import API from './api';
+import axios from 'axios';
 
 const PlayerManagement = () => {
   const [players, setPlayers] = useState([]);
@@ -44,17 +45,16 @@ const PlayerManagement = () => {
   });
 
   // API configuration
+  // localStorage.setItem('authToken', '3813b5a28edda9181637e2931875742154d4cf8e');
   const API_URL = 'http://localhost:8000/api'; // Change to your Django server URL
-  const authToken = localStorage.getItem('authToken'); // Assuming you use token auth
+  const authToken = localStorage.getItem('token'); // Assuming you use token auth
 
   // Fetch players from API
   const fetchPlayers = async () => {
     try {
       const response = await axios.get(`${API_URL}/players/`, {
-        headers: {
-          'Authorization': `Token ${authToken}`
-        }
-      });
+  headers: { 'Authorization': `Token ${authToken}` }
+});
       setPlayers(response.data);
     } catch (error) {
       console.error('Error fetching players:', error);
@@ -360,7 +360,9 @@ const PlayerManagement = () => {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {filteredPlayers.length > 0 ? filteredPlayers.map((player) => (
-              <tr key={player.id} className="hover:bg-gray-50">
+              <tr key={`${player.id}-${player.user?.id || 'nouser'}`} className="hover:bg-gray-50">
+
+
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
                     <div className="bg-gray-200 border-2 border-dashed rounded-xl w-10 h-10 flex items-center justify-center mr-3">
